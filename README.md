@@ -80,9 +80,13 @@ void runAddMethod(id self, SEL _cmd, NSString *string){
 + (BOOL)resolveInstanceMethod:(SEL)sel{
 
     //给本类动态添加一个方法
+    
     if ([NSStringFromSelector(sel) isEqualToString:@"resolveAdd:"]) {
+    
         class_addMethod(self, sel, (IMP)runAddMethod, "v@:*");
+    
     }
+    
     return YES;
 }
 5:关联对象
